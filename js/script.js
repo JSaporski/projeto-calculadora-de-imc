@@ -5,6 +5,7 @@ import { calculateIMC, verifyIfIsNotANumber } from './utils.js'
 const form = document.querySelector('.card form')
 const inputWeight = form.querySelector('.input-wrapper #weight')
 const inputHeight = form.querySelector('.input-wrapper #height')
+const inputs = [inputWeight, inputHeight]
 
 function showResult(result) {
   Modal.open()
@@ -32,3 +33,7 @@ form.onsubmit = event => {
     showResult(result)
   }
 }
+
+inputs.forEach(input => {
+  input.addEventListener('input', () => AlertError.hide())
+})
